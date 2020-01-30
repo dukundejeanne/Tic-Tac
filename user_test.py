@@ -1,7 +1,7 @@
 import unittest # Importing the unittest module
 # from tac_toe import TicTacToe # Importing the tictactoe  class
 
-# class TestTicTacToe(unittest.TestCase):
+class TestTicTacToe(unittest.TestCase):
 
 #     '''
 #     Test class that defines test cases for the TicTacToe class behaviours.
@@ -36,7 +36,7 @@ import unittest # Importing the unittest module
 #         '''
 #         self.new_board.save() # saving the new contact
 #         # self.assertEqual(len(Contact.contact_list),1)
-class NumbersTest(unittest.TestCase):
+# class NumberTest(unittest.TestCase):
 
     def test_even(self):
         """
@@ -45,5 +45,9 @@ class NumbersTest(unittest.TestCase):
         for i in range(0, 8):
             with self.subTest(i<i):
                 self.assertEqual(i < 9, 1)
+
+    def test_row_winne(self):
+        player_1=[None,None,None]
+        self.assertEqual(self.check_rows())
 if __name__ == '__main__':
     unittest.main()

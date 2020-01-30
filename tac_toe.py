@@ -17,7 +17,7 @@ current_player="x"
 
 # class TicTacToe:
   
-#   def __init__(self):
+#   def __init__(self,current_player:["x","0"]):
 
 #     '''
 #     __init__ method that helps us define properties for our objects.
