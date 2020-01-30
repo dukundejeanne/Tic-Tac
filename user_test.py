@@ -37,15 +37,16 @@ class TestTicTacToe(unittest.TestCase):
 #         self.new_board.save() # saving the new contact
 #         # self.assertEqual(len(Contact.contact_list),1)
 # class NumberTest(unittest.TestCase):
-    player_1="x"
-    player_2="0"
+    
+    board="x"
+    board="0"
     def setUp(self): 
         pass
     
     def make_board(self):
         return Board()
 
-    def test_even(self):
+    def test_handle_player(self):
         """
         Test that numbers between 0 and 5 are all even.
         """
@@ -54,27 +55,43 @@ class TestTicTacToe(unittest.TestCase):
                 self.assertEqual(i < 9, 1)
 
     def test_check_rows(self):
-        player_1=[board[0],board[3],board[6]]
-        # self.assertEqual(self.game_still_going)
-
+        player_1=[None,None,None]
+        # self.assertEqual(self.player_1)
+    
+    def test_upper(self):         
+        self.assertEqual('x'.upper(), 'X') 
+  
 
   
     # Returns winne if the board contains 3 x. 
     def test_check_for_winner(self): 
         self.assertEqual( 'x'*3, 'xxx') 
 
-    def test_tie(self):
-        assert(self.board.is_full())
-    # def test_startgrid_is_empty_and_not_full(self):
-    #     assert(self.grid.is_empty())
-    #     self.assertFalse(self.grid.is_full())
+
+    # def setUp(self):
+    #     self.board= self.make_board()
+    # def test_too_few_markers(self):
+    #     with self.assertRaises(InvalidMarkers):
+    #         board = Board("O")
+    # def test_too_many_markers(self):
+    #     with self.assertRaises(InvalidMarkers):
+    #         board= Board("OXY")
+    # def test_duplicate_markers(self):
+    #     with self.assertRaises(InvalidMarkers):
+    #         board = Board("OO")
+
+    def test_check_tie(self):
+        
+        self.assertFalse(self.board.is_full())
+
+    def test_startgrid_is_empty_and_not_full(self):
+        assert(self.board.is_empty())
+        self.assertFalse(self.board.is_full())
     # def test_not_empty_and_not_full_after_play_center(self):
     #     assert(self.grid.play('center'))
     #     assert(not self.grid.is_empty())
   
     # Returns True if the string is in upper case. 
-    def test_upper(self):         
-        self.assertEqual('foo'.upper(), 'FOO') 
   
     # # Returns TRUE if the string is in uppercase 
     # # else returns False. 
@@ -97,3 +114,16 @@ class TestTicTacToe(unittest.TestCase):
             # s.split(2) 
 if __name__ == '__main__':
     unittest.main()
+
+
+
+#board
+#print board
+#play games
+#handle players
+#check Win
+  #check rows
+  #check column
+  #check diagonis
+#check tie
+#flip player

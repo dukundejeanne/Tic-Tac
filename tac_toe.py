@@ -34,7 +34,7 @@ current_player="x"
 
 
 
-def display_board():
+def print_board():
   '''
   print the design board  display board 
   '''
@@ -48,7 +48,7 @@ def play_game():
   start playing game by display, and check if the player has win or tie.
   '''
   #display initial board
-  display_board()
+  print_board()
 
   #while the game is still going
   while game_still_going:
@@ -94,7 +94,7 @@ def handle_player(player):
       print("the positon is outside boards, Play again")
 
   board[position] = player
-  display_board()
+  print_board()
 
 
 def check_game_over():
@@ -237,7 +237,7 @@ play_game()
 
 
 #board
-#display board
+#print board
 #play games
 #handle players
 #check Win
