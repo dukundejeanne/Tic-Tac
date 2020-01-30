@@ -54,10 +54,10 @@ def play_game():
   while game_still_going:
 
     #handle a single turn player of an arbitrary
-    handle_turn(current_player)
+    handle_player(current_player)
 
     #check if game is over
-    check_if_game_over()
+    check_game_over()
 
     #flip to the other player
     flip_player()
@@ -72,7 +72,7 @@ def play_game():
   # print(winner "tie")
 
 #handle a single turn player of an arbitrary 
-def handle_turn(player):
+def handle_player(player):
   '''
   check if the player choose the valid position 
   '''
@@ -97,7 +97,7 @@ def handle_turn(player):
   display_board()
 
 
-def check_if_game_over():
+def check_game_over():
   '''
   function to check is the game is over
   '''
@@ -239,7 +239,7 @@ play_game()
 #board
 #display board
 #play games
-#handle turn
+#handle players
 #check Win
   #check rows
   #check column

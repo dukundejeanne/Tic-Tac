@@ -37,6 +37,13 @@ class TestTicTacToe(unittest.TestCase):
 #         self.new_board.save() # saving the new contact
 #         # self.assertEqual(len(Contact.contact_list),1)
 # class NumberTest(unittest.TestCase):
+    player_1="x"
+    player_2="0"
+    def setUp(self): 
+        pass
+    
+    def make_board(self):
+        return Board()
 
     def test_even(self):
         """
@@ -46,8 +53,47 @@ class TestTicTacToe(unittest.TestCase):
             with self.subTest(i<i):
                 self.assertEqual(i < 9, 1)
 
-    def test_row_winne(self):
-        player_1=[None,None,None]
-        self.assertEqual(self.check_rows())
+    def test_check_rows(self):
+        player_1=[board[0],board[3],board[6]]
+        # self.assertEqual(self.game_still_going)
+
+
+  
+    # Returns winne if the board contains 3 x. 
+    def test_check_for_winner(self): 
+        self.assertEqual( 'x'*3, 'xxx') 
+
+    def test_tie(self):
+        assert(self.board.is_full())
+    # def test_startgrid_is_empty_and_not_full(self):
+    #     assert(self.grid.is_empty())
+    #     self.assertFalse(self.grid.is_full())
+    # def test_not_empty_and_not_full_after_play_center(self):
+    #     assert(self.grid.play('center'))
+    #     assert(not self.grid.is_empty())
+  
+    # Returns True if the string is in upper case. 
+    def test_upper(self):         
+        self.assertEqual('foo'.upper(), 'FOO') 
+  
+    # # Returns TRUE if the string is in uppercase 
+    # # else returns False. 
+    # def test_isupper(self):         
+    #     self.assertTrue('FOO'.isupper()) 
+    #     self.assertFalse('Foo'.isupper()) 
+  
+    # # Returns true if the string is stripped and  
+    # # matches the given output. 
+    # def test_strip(self):         
+    #     s = 'geeksforgeeks'
+    #     self.assertEqual(s.strip('geek'), 'sforgeeks') 
+  
+    # # Returns true if the string splits and matches 
+    # # the given output. 
+    # def test_split(self):         
+    #     s = 'hello world'
+    #     self.assertEqual(s.split(), ['hello', 'world']) 
+    #     with self.assertRaises(TypeError): 
+            # s.split(2) 
 if __name__ == '__main__':
     unittest.main()
