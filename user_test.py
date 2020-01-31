@@ -84,9 +84,9 @@ class TestTicTacToe(unittest.TestCase):
         
         self.assertFalse(self.board.is_full())
 
-    def test_startgrid_is_empty_and_not_full(self):
-        assert(self.board.is_empty())
-        self.assertFalse(self.board.is_full())
+    # def test_startgrid_is_empty_and_not_full(self):
+    #     assert(self.board.is_empty())
+    #     self.assertFalse(self.board.is_full())
     # def test_not_empty_and_not_full_after_play_center(self):
     #     assert(self.grid.play('center'))
     #     assert(not self.grid.is_empty())
