@@ -125,7 +125,8 @@ class TicTacToe(Env):
             else:
                 return None
 
-
+if __name__ == '__main__':
+    unittest.main()
 
 
 
