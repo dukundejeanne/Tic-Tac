@@ -1,5 +1,6 @@
-// var ul;
-
+import {ai} from './scripts'
+import {control} from './scripts'
+import {game} from './scripts'
 // setup(function(){
 //   ul = $('<ul><li class="no-results"></li></ul>');
 // });
@@ -9,7 +10,7 @@
 //   assert(l);
 // });
 QUnit.test( "hello test", function( assert ) {
-    assert.ok( 1 == "1", "won!" );
+    assert.ok( x == "x", "won!" );
   });
   QUnit.test("prettydate basics", function( assert ) {
     var now = "2008/01/28 22:25:00";
