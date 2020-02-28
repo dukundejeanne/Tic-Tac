@@ -2,23 +2,11 @@ from tic_tac_toe import TicTacToe
 import numpy as np
 import unittest # importing the unittest module
 class TestTicTacToe(unittest.TestCase):
-    def setUp(self):
-        '''
-        Set up method to run before each test cases.
-        '''
-        # self.new_board=TicTacToe("[3,3]",1,"MinimaxAi",9,-1)
-        pass
 
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
-
-        # self.assertEqual(self.new_board.board,"[3,3]")
-        # self.assertEqual(self.new_board.x_next,1)
-        # self.assertEqual(self.new_board.o_ai,"MinimaxAi")
-        # self.assertEqual(self.new_board.action_space,9)
-        # self.assertEqual(self.new_boardobservation_space,-1)
         pass
     def test_victory_condition_rows(self):
         game = TicTacToe()
