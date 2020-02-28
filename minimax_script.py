@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from math import inf as infinity
 from random import choice
 import platform
@@ -7,8 +6,6 @@ from os import system
 
 HUMAN = -1
 COMPUTER = +1
-
-#   print the design board  display board 
 # Game board
 board = [
     [0, 0, 0],
@@ -19,8 +16,8 @@ board = [
 def evaluate(state):
     """
     Function to heuristic evaluation of state.
-    :param state: the state of the current board
-    :return: +1 if the computer wins; -1 if the human wins; 0 draw
+     the state of the current board
+    return +1 if the computer wins; -1 if the human wins; 0 draw
     """
     if wins(state, COMPUTER):
         score = +1
@@ -38,9 +35,9 @@ def wins(state, player):
     * Three rows    [X X X] or [O O O]
     * Three cols    [X X X] or [O O O]
     * Two diagonals [X X X] or [O O O]
-    :param state: the state of the current board
-    :param player: a human or a computer
-    :return: True if the player wins
+     the state of the current board
+     a human or a computer
+    return True if the player wins
     """
     win_state = [
         [state[0][0], state[0][1], state[0][2]],
@@ -60,9 +57,8 @@ def wins(state, player):
 
 def game_over(state):
     """
-    This function test if the human or computer wins
-    :param state: the state of the current board
-    :return: True if the human or computer wins
+    This function test if the human or computer winshe state of the current board
+    return True if the human or computer wins
     """
     return wins(state, HUMAN) or wins(state, COMPUTER)
 
@@ -70,8 +66,7 @@ def game_over(state):
 def empty_cells(state):
     """
     Each empty cell will be added into cells' list
-    :param state: the state of the current board
-    :return: a list of empty cells
+     the state of the current board and return a list of empty cells
     """
     cells = []
 
@@ -84,9 +79,7 @@ def empty_cells(state):
 def valid_move(x, y):
     """
     A move is valid if the chosen cell is empty
-    :param x: X coordinate
-    :param y: Y coordinate
-    :return: True if the board[x][y] is empty
+     X coordinate, Y coordinate,True if the board[x][y] is empty
     """
     if [x, y] in empty_cells(board):
         return True
@@ -97,9 +90,7 @@ def valid_move(x, y):
 def set_move(x, y, player):
     """
     Set the move on board, if the coordinates are valid
-    :param x: X coordinate
-    :param y: Y coordinate
-    :param player: the current player
+    X coordinate,Y coordinate,the current player
     """
     if valid_move(x, y):
         board[x][y] = player
@@ -110,12 +101,10 @@ def set_move(x, y, player):
 
 def minimax(state, depth, player):
     """
-    AI function that choice the best move
-    :param state: current state of the board
-    :param depth: node index in the tree (0 <= depth <= 9),
+    AI function that choice the best move, current state of the board
+    node index in the tree (0 <= depth <= 9),
     but never nine in this case (see iaturn() function)
-    :param player: an human or a computer
-    :return: a list with [the best row, best col, best score]
+     an human or a computer and return a list with [the best row, best col, best score]
     """
     if player == COMPUTER:
         best = [-1, -1, -infinity]
@@ -156,8 +145,7 @@ def clean():
 
 def render(state, c_choice, h_choice):
     """
-    Print the board on console
-    :param state: current state of the board
+    Print the board 
     """
     print('----------------')
     for row in state:
@@ -176,9 +164,8 @@ def ai_turn(c_choice, h_choice):
     """
     It calls the minimax function if the depth < 9,
     else it choices a random coordinate.
-    :param c_choice: computer's choice X or O
-    :param h_choice: human's choice X or O
-    :return:
+    computer's choice and human's choice X or O
+    
     """
     depth = len(empty_cells(board))
     if depth == 0 or game_over(board):
@@ -201,10 +188,9 @@ def ai_turn(c_choice, h_choice):
 
 def human_turn(c_choice, h_choice):
     """
-    The Human plays choosing a valid move.
-    :param c_choice: computer's choice X or O
-    :param h_choice: human's choice X or O
-    :return:
+    The Human plays choosing a valid move.between computer's choice X or O
+     human's choice X or O
+   
     """
     depth = len(empty_cells(board))
     if depth == 0 or game_over(board):
