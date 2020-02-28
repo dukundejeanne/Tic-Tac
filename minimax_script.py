@@ -5,17 +5,11 @@ import platform
 import time
 from os import system
 
-"""
-An implementation of Minimax AI Algorithm in Tic Tac Toe,
-using Python.
-This software is available under GPL license.
-Author: Clederson Cruz
-Year: 2017
-License: GNU GENERAL PUBLIC LICENSE (GPL)
-"""
-
 HUMAN = -1
-COMP = +1
+COMPUTER = +1
+
+#   print the design board  display board 
+# Game board
 board = [
     [0, 0, 0],
     [0, 0, 0],
@@ -28,7 +22,7 @@ def evaluate(state):
     :param state: the state of the current board
     :return: +1 if the computer wins; -1 if the human wins; 0 draw
     """
-    if wins(state, COMP):
+    if wins(state, COMPUTER):
         score = +1
     elif wins(state, HUMAN):
         score = -1
@@ -70,7 +64,7 @@ def game_over(state):
     :param state: the state of the current board
     :return: True if the human or computer wins
     """
-    return wins(state, HUMAN) or wins(state, COMP)
+    return wins(state, HUMAN) or wins(state, COMPUTER)
 
 
 def empty_cells(state):
@@ -123,7 +117,7 @@ def minimax(state, depth, player):
     :param player: an human or a computer
     :return: a list with [the best row, best col, best score]
     """
-    if player == COMP:
+    if player == COMPUTER:
         best = [-1, -1, -infinity]
     else:
         best = [-1, -1, +infinity]
@@ -139,7 +133,7 @@ def minimax(state, depth, player):
         state[x][y] = 0
         score[0], score[1] = x, y
 
-        if player == COMP:
+        if player == COMPUTER:
             if score[2] > best[2]:
                 best = score  # max value
         else:
@@ -198,10 +192,10 @@ def ai_turn(c_choice, h_choice):
         x = choice([0, 1, 2])
         y = choice([0, 1, 2])
     else:
-        move = minimax(board, depth, COMP)
+        move = minimax(board, depth, COMPUTER)
         x, y = move[0], move[1]
 
-    set_move(x, y, COMP)
+    set_move(x, y, COMPUTER)
     time.sleep(1)
 
 
@@ -257,7 +251,7 @@ def main():
     while h_choice != 'O' and h_choice != 'X':
         try:
             print('')
-            h_choice = input('Choose X or O\nChosen: ').upper()
+            h_choice = input('Choose X for your: ').upper()
         except KeyboardInterrupt:
             print('Bye')
             exit()
@@ -274,7 +268,7 @@ def main():
     clean()
     while first != 'Y' and first != 'N':
         try:
-            first = input('First to start?[y/n]: ').upper()
+            first = input('First to start?[yes/no]: ').upper()
         except KeyboardInterrupt:
             print('Bye')
             exit()
@@ -296,7 +290,7 @@ def main():
         print('Human turn [{}]'.format(h_choice))
         render(board, c_choice, h_choice)
         print('YOU WIN!')
-    elif wins(board, COMP):
+    elif wins(board, COMPUTER):
         clean()
         print('Computer turn [{}]'.format(c_choice))
         render(board, c_choice, h_choice)
@@ -304,7 +298,7 @@ def main():
     else:
         clean()
         render(board, c_choice, h_choice)
-        print('DRAW!')
+        print('TIE!')
 
     exit()
 

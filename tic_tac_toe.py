@@ -11,6 +11,15 @@ from gym import spaces
 class TicTacToe(Env):
 
     def __init__(self):
+
+        '''
+        __init__ method that helps us define properties for our objects.
+
+            Args:
+            board:takes new position
+            player:start with x turn end with 0 turn
+        
+        '''
         self.board = np.zeros([3,3], dtype=np.int8)
         self.x_next = True if random.random() > 0.5 else False
         self.o_ai = MinimaxAI(self)
@@ -60,14 +69,6 @@ class TicTacToe(Env):
         else:
             return self.board, -0.5, False, {}
 
-    # def render(self, mode="Human"):
-    #     shapes = {-1: 'o', 0: ' ', 1: 'x'}
-    #     print(f"{shapes[self.board[0,0]]}|{shapes[self.board[0,1]]}|{shapes[self.board[0,2]]}")
-    #     print('-+-+-')
-    #     print(f"{shapes[self.board[1,0]]}|{shapes[self.board[1,1]]}|{shapes[self.board[1,2]]}")
-    #     print('-+-+-')
-    #     print(f"{shapes[self.board[2,0]]}|{shapes[self.board[2,1]]}|{shapes[self.board[2,2]]}")
-
 
     def try_make_turn(self, row, column):
 
@@ -105,8 +106,6 @@ class TicTacToe(Env):
     def _evaluate(board):
 
         sums = []
-        # we collect totals of all row, columns and diagonals. Any of those must have a value of
-        # either 3 or -3 if there are x x x or o o o in this sequence.
         sums += [sum(board[row]) for row in range(3)]
         sums += [sum([board[i][column] for i in range(3)]) for column in range(3)]
         sum_main_diag = sum([board[i][i] for i in range(3)])

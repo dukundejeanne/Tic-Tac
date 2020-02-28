@@ -65,7 +65,7 @@ start = Node(children=[
 
 
 print(minimax(start, 10, True))
-#
+
 print(minimax(branch_a,10,False))
 
 print(minimax(branch_b,10,False))
@@ -74,12 +74,5 @@ print(minimax(sub_c,10,True))
 
 print(minimax(sub_d,10,True))
 
-
-
-# ez = Node(children=[Node(-7),Node(-5)])
-#
-# print(minimax(ez, 10, True))
-#
-# print(minimax(ez, 10, False))
 
 
