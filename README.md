@@ -14,6 +14,8 @@ All but the simplest human behaviour is ascribed to intelligence, while even the
 
 ## To Run this Game Open Console
 * open terminal 
+* run minimax_scripts file 
+* use python3.6 minimax_script.py run
 * choose the board to use "X"
 * choose yes if you want to playe the game 
 * choose the number between 0,1,2,3,4,5,6,7,8,9
